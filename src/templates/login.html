@@ -1,0 +1,28 @@
+
+{%extends 'index.html'%}
+{%block body%}
+
+<body>
+<form id="form1" name="form1" method="post" action="/logins">
+  <table width="200">
+    <tr>
+      <th scope="row">user name </th>
+      <td><label>
+        <input type="text" name="textfield" required  />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">password</th>
+      <td><label>
+        <input type="password" name="textfield2" required />
+      </label></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><label>
+        <input type="submit" name="Submit" value="login" />
+      </label></th>
+    </tr>
+  </table>
+</form>
+</body>
+{%endblock%}

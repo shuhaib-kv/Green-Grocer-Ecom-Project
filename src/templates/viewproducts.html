@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+ .
+ <form id="form1" name="form1" method="post" action="addproduct">
+   <table width="200">
+     <tr>
+       <td colspan="6">Type
+         <label>
+         <select name="select">
+		  <option {% if ress=='FRUITS' %} selected {% endif %}>FRUITS</option>
+          <option {% if ress=='VEGITABLES' %} selected {% endif %}>VEGITABLES</option>
+          <option {% if ress=='GRAINS' %} selected {% endif %}>GRAINS</option>
+          <option {% if ress=='SEEDS' %} selected {% endif %}>SEEDS</option>
+          <option {% if ress=='SPICES' %} selected {% endif %}>SPICES</option>
+          <option {% if ress=='HERBS' %} selected {% endif %}>HERBS</option>
+          <option {% if ress=='PESTICIDES' %} selected {% endif %}>PESTICIDES</option>
+         </select>
+         <input type="submit" name="Submit" value="Search" />
+       </label></td>
+     </tr>
+     <tr>
+       <td>Product Name  </td>
+       <td>Image</td>
+       <td>Whole Sale Price </td>
+       <td>Retail Price  </td>
+       <td>Quantity</td>
+       <td>&nbsp;</td>
+     </tr>
+     {%for i in val%}
+     <tr>
+       <td>&nbsp;{{i[1]}}</td>
+       <td>&nbsp;<img src="static/uploads/{{i[3]}}" alt="" width="100px" height="100px"/></td>
+       <td>&nbsp;{{i[4]}}</td>
+       <td>&nbsp;{{i[5]}}</td>
+       <td>&nbsp;{{i[6]}}</td>
+       <td><p><a href="/editproducts?id={{i[0]}}">Edit</a></p>
+       <p><a href="/delete?id={{i[0]}}">Delete</a></p></td>
+     </tr>
+     {%endfor%}
+
+     <tr>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td><label>
+         <input type="submit" name="Submit" value="ADD" />
+       </label></td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+     </tr>
+   </table>
+</form>
+</body>
+
+</html>
